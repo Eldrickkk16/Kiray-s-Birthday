@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Kyrelle ❤️</title>
+
+<style>
+/* -------- GLOBAL STYLES -------- */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(#ffe6f2, #ffd1e8);
+    font-family: "Comic Sans MS", cursive;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+/* -------- PASSWORD GATE -------- */
+#passwordGate {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #ffdaf0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#passwordGate input {
+    padding: 10px;
+    border: 2px solid #ff2e8c;
+    border-radius: 10px;
+    font-size: 1.1rem;
+}
+
+#passwordGate button {
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: #ff2e8c;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* -------- ANIMATED NAME -------- */
+#nameAnimation {
+    margin-top: 50px;
+    font-size: 3rem;
+    color: #ff2e8c;
+    text-shadow: 2px 2px white;
+    opacity: 0;
+    animation: fadeInName 2s forwards ease-in-out;
+}
+
+@keyframes fadeInName {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* -------- TYPEWRITER MESSAGE -------- */
+#typewriter {
+    font-size: 1.4rem;
+    width: 80%;
+    margin: 20px auto;
+    color: #ff5eaa;
+    min-height: 70px;
+}
+
+/* -------- BUTTONS -------- */
+button {
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#playMusic {
+    padding: 12px 25px;
+    background: #ff8dc3;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    color: white;
+    margin-top: 10px;
+}
+
+#giftBtn {
+    margin-top: 40px;
+    padding: 15px 35px;
+    background: #ff2e8c;
+    border: none;
+    color: white;
+    font-size: 1.3rem;
+    border-radius: 10px;
+}
+
+/* -------- LOVE LETTER -------- */
+#loveLetter {
+    width: 80%;
+    margin: 20px auto;
+    background: #fff0f7;
+    padding: 20px;
+    border-radius: 15px;
+    border: 3px solid #ff8dc3;
+    display: none;
+    font-size: 1.2rem;
+    animation: openLetter 1.2s forwards;
+}
+
+@keyframes openLetter {
+    from { transform: scaleY(0); opacity: 0; }
+    to { transform: scaleY(1); opacity: 1; }
+}
+
+/* -------- SLIDESHOW -------- */
+#slideshow {
+    margin: 30px auto;
+    width: 350px;
+    height: 350px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 20px pink;
+    display: none;
+}
+
+#slideshow img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* -------- POPUP PHOTO -------- */
+#photoPopup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 180, 210, 0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+/* -------- FIREWORKS CANVAS -------- */
+#fireworks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* -------- FLOATING BALLOONS -------- */
+.balloon {
+    position: fixed;
+    bottom: -100px;
+    animation: floatBalloon 10s linear infinite;
+}
+
+@keyframes floatBalloon {
+    from { transform: translateY(0); }
+    to { transform: translateY(-120vh); }
+}
+</style>
+</head>
+<body>
+
+<!-- ---------------- PASSWORD GATE ---------------- -->
+<div id="passwordGate">
+    <h2>Enter Password to Continue 💕</h2>
+    <input id="passwordInput" placeholder="Enter password">
+    <button onclick="checkPassword()">Unlock</button>
+</div>
+
+<!-- MAIN CONTENT -->
+<h1 id="nameAnimation">Happy Birthday, Kyrelle ❤️</h1>
+
+<div id="typewriter"></div>
+
+<button id="playMusic">🎵 Play Birthday Song</button>
+
+<button id="giftBtn">🎁 Open Your Birthday Gift</button>
+
+<!-- LOVE LETTER -->
+<div id="loveLetter">
+    My dearest Kyrelle,  
+    <br><br>
+    You are the most beautiful blessing in my life.  
+    You bring light, joy, warmth, and love into every moment we share.  
+    Today, I celebrate YOU — your heart, your smile, your kindness, and your magic.  
+    I’m endlessly grateful to have you.  
+    <br><br>
+    I love you more every single day. 💗  
+    — Eldrick
+</div>
+
+<!-- SLIDESHOW -->
+<div id="slideshow">
+    <img id="slideImage" src="YOUR-PHOTO-LINK-HERE-1">
+</div>
+
+<!-- FIREWORKS -->
+<canvas id="fireworks"></canvas>
+
+<!-- HAPPY BIRTHDAY SONG -->
+<audio id="bdaySong">
+    <source src="https://www2.cs.uic.edu/~i101/SoundFiles/HappyBirthday.mid">
+</audio>
+
+<script>
+/* ---------------- PASSWORD CHECK ---------------- */
+function checkPassword() {
+    const pw = document.getElementById("passwordInput").value;
+    if (pw.toLowerCase() === "eldrick") {
+        document.getElementById("passwordGate").style.display = "none";
+    } else {
+        alert("Incorrect password! Try again.");
+    }
+}
+
+/* ---------------- TYPEWRITER ---------------- */
+const message = "Happy Birthday my love, Kyrelle! You make my world brighter, my days happier, and my heart fuller. This whole page is for you. 💗";
+let i = 0;
+
+function typeWriter() {
+    if (i < message.length) {
+        document.getElementById("typewriter").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, 40);
+    }
+}
+setTimeout(typeWriter, 1000);
+
+/* ---------------- BIRTHDAY SONG ---------------- */
+document.getElementById("playMusic").onclick = () => {
+    document.getElementById("bdaySong").play();
+    alert("🎵 Happy Birthday my love! 💖");
+};
+
+/* ---------------- OPEN GIFT ---------------- */
+document.getElementById("giftBtn").onclick = () => {
+    document.getElementById("loveLetter").style.display = "block";
+    document.getElementById("slideshow").style.display = "block";
+    startSlideshow();
+    launchFireworks();
+    releaseBalloons();
+};
+
+/* ---------------- SLIDESHOW ---------------- */
+const photos = [
+    "YOUR-PHOTO-LINK-HERE-1",
+    "YOUR-PHOTO-LINK-HERE-2",
+    "YOUR-PHOTO-LINK-HERE-3"
+];
+
+let indexSlide = 0;
+
+function startSlideshow() {
+    setInterval(() => {
+        indexSlide = (indexSlide + 1) % photos.length;
+        document.getElementById("slideImage").src = photos[indexSlide];
+    }, 2500);
+}
+
+/* ---------------- FLOATING BALLOONS ---------------- */
+function releaseBalloons() {
+    for (let i = 0; i < 15; i++) {
+        const balloon = document.createElement("div");
+        balloon.className = "balloon";
+        balloon.innerHTML = "🎈";
+        balloon.style.left = Math.random() * window.innerWidth + "px";
+        balloon.style.fontSize = (50 + Math.random() * 40) + "px";
+        document.body.appendChild(balloon);
+
+        setTimeout(() => balloon.remove(), 11000);
+    }
+}
+
+/* ---------------- FIREWORKS ---------------- */
+function launchFireworks() {
+    const canvas = document.getElementById("fireworks");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    function firework() {
+        let x = Math.random() * canvas.width;
+        let y = canvas.height;
+        let targetY = Math.random() * canvas.height / 2;
+
+        let interval = setInterval(() => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            ctx.arc(x, y, 5, 0, Math.PI * 2);
+            ctx.fillStyle = `hsl(${Math.random()*360}, 100%, 60%)`;
+            ctx.fill();
+            y -= 10;
+
+            if (y <= targetY) {
+                clearInterval(interval);
+                explode(x, y);
+            }
+        }, 20);
+    }
+
+    function explode(x, y) {
+        let particles = [];
+        for (let i = 0; i < 30; i++) {
+            particles.push({
+                x: x,
+                y: y,
+                angle: Math.random() * 2 * Math.PI,
+                radius: Math.random() * 5 + 2
+            });
+        }
+
+        let interval = setInterval(() => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.x += Math.cos(p.angle) * 5;
+                p.y += Math.sin(p.angle) * 5;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `hsl(${Math.random()*360}, 100%, 60%)`;
+                ctx.fill();
+            });
+        }, 30);
+
+        setTimeout(() => clearInterval(interval), 500);
+    }
+
+    setInterval(firework, 1000);
+}
+</script>
+
+</body>
+</html>
