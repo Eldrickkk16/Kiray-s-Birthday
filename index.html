@@ -4,13 +4,16 @@
 <meta charset="UTF-8">
 <title>Happy Birthday Kyrelle ❤️</title>
 
+<!-- GOOGLE FONT: QUICKSAND -->
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
 /* -------- GLOBAL STYLES -------- */
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(#ffe6f2, #ffd1e8);
-    font-family: "Comic Sans MS", cursive;
+    background: linear-gradient(#fdeaff, #ffeefa, #e8f6ff);
+    font-family: "Quicksand", sans-serif;
     overflow-x: hidden;
     text-align: center;
 }
@@ -20,38 +23,48 @@ body {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: #ffdaf0;
+    background: #ffeefa;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+#passwordGate h2 {
+    color: #d77fa1;
+    font-weight: 600;
+}
+
 #passwordGate input {
-    padding: 10px;
-    border: 2px solid #ff2e8c;
+    padding: 12px;
+    border: 2px solid #f2acc6;
     border-radius: 10px;
     font-size: 1.1rem;
+    outline: none;
+    font-family: "Quicksand";
 }
 
 #passwordGate button {
     margin-top: 15px;
-    padding: 10px 25px;
-    background: #ff2e8c;
+    padding: 10px 30px;
+    background: #f2acc6;
     color: white;
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    font-family: "Quicksand";
+    font-size: 1rem;
 }
 
 /* -------- ANIMATED NAME -------- */
 #nameAnimation {
     margin-top: 50px;
     font-size: 3rem;
-    color: #ff2e8c;
+    color: #d77fa1;
     text-shadow: 2px 2px white;
     opacity: 0;
     animation: fadeInName 2s forwards ease-in-out;
+    font-weight: 600;
 }
 
 @keyframes fadeInName {
@@ -61,11 +74,12 @@ body {
 
 /* -------- TYPEWRITER MESSAGE -------- */
 #typewriter {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     width: 80%;
     margin: 20px auto;
-    color: #ff5eaa;
+    color: #c26a9b;
     min-height: 70px;
+    font-weight: 500;
 }
 
 /* -------- BUTTONS -------- */
@@ -76,35 +90,40 @@ button {
 
 #playMusic {
     padding: 12px 25px;
-    background: #ff8dc3;
+    background: #f7b7d4;
     border: none;
     border-radius: 10px;
     font-size: 1.1rem;
     color: white;
     margin-top: 10px;
+    font-family: "Quicksand";
 }
 
 #giftBtn {
     margin-top: 40px;
     padding: 15px 35px;
-    background: #ff2e8c;
+    background: #d77fa1;
     border: none;
     color: white;
     font-size: 1.3rem;
-    border-radius: 10px;
+    border-radius: 12px;
+    font-weight: 600;
 }
 
 /* -------- LOVE LETTER -------- */
 #loveLetter {
     width: 80%;
     margin: 20px auto;
-    background: #fff0f7;
-    padding: 20px;
+    background: #fff6fb;
+    padding: 25px;
     border-radius: 15px;
-    border: 3px solid #ff8dc3;
+    border: 3px solid #f7b7d4;
     display: none;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     animation: openLetter 1.2s forwards;
+    color: #ad5c86;
+    font-weight: 500;
+    line-height: 1.6;
 }
 
 @keyframes openLetter {
@@ -119,7 +138,7 @@ button {
     height: 350px;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 0 20px pink;
+    box-shadow: 0 0 20px #f2acc6;
     display: none;
 }
 
@@ -127,19 +146,6 @@ button {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-/* -------- POPUP PHOTO -------- */
-#photoPopup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 180, 210, 0.85);
-    display: none;
-    align-items: center;
-    justify-content: center;
 }
 
 /* -------- FIREWORKS CANVAS -------- */
@@ -185,14 +191,23 @@ button {
 
 <!-- LOVE LETTER -->
 <div id="loveLetter">
-    My dearest Kyrelle,  
+    Happy birthday to the most soulful and loving person I've ever met.  
+    I'm so grateful that you're in my life and that we're moving forward together, side by side.  
+    From this year forward, I want you to look forward to this day — not just because it's your special day,  
+    but because I'll always make sure it feels like the best day in the world for you.  
     <br><br>
-    You are the most beautiful blessing in my life.  
-    You bring light, joy, warmth, and love into every moment we share.  
-    Today, I celebrate YOU — your heart, your smile, your kindness, and your magic.  
-    I’m endlessly grateful to have you.  
+    Whether it's something special, something you've always wanted,  
+    or just the feeling of being truly celebrated,  
+    I promise to make every birthday one that fills your heart with happiness.  
+    Because you deserve that and so much more.  
     <br><br>
-    I love you more every single day. 💗  
+    I pray that you win in life, achieve all your dreams,  
+    and get everything you want.  
+    I want to see you on top — becoming the person you've always wanted to be.  
+    <br><br>
+    Happiest birthday, Mahal.  
+    I love you with all my heart.  
+    <br><br>
     — Eldrick
 </div>
 
@@ -221,7 +236,7 @@ function checkPassword() {
 }
 
 /* ---------------- TYPEWRITER ---------------- */
-const message = "Happy Birthday my love, Kyrelle! You make my world brighter, my days happier, and my heart fuller. This whole page is for you. 💗";
+const message = "Happy birthday, Mahal. I hope today feels as beautiful as your heart. 💗";
 let i = 0;
 
 function typeWriter() {
@@ -337,4 +352,3 @@ function launchFireworks() {
 
 </body>
 </html>
-
